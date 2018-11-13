@@ -31,10 +31,10 @@ public class TestApp {
                 + "  -h, --help   Display help message\n"
                 + "Commands:\n"
                 + "  marcxml2iso2709"
-                +"\n".replace("\n", EOL);
+                +"\n".replace("\n", "");
 
         String[] emptyArgs = {};
         App.main(emptyArgs);
-        assertEquals(expected, testResources.getStandardOutString());
+        assertEquals(expected, testResources.getStandardOutString().replace(EOL, ""));
     }
 }
