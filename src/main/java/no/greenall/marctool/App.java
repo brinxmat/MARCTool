@@ -2,8 +2,6 @@ package no.greenall.marctool;
 
 import picocli.CommandLine;
 
-import java.util.Objects;
-
 @CommandLine.Command(name = "App", subcommands = {Marcxml2ISO2709.class})
 public class App implements Runnable {
 

@@ -1,7 +1,6 @@
 package no.greenall.marctool;
 
 import org.marc4j.MarcStreamWriter;
-import org.marc4j.MarcTxtWriter;
 import org.marc4j.MarcWriter;
 import org.marc4j.MarcXmlReader;
 import org.marc4j.marc.Record;
