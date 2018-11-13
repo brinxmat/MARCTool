@@ -62,4 +62,20 @@ public class TestMarcxml2ISO2709 {
 
         assertEquals(expected, result[0]);
     }
+
+    @Ignore
+    @Test
+    public void testItCanConverSeveraltMarcxmlRecordsToIso2709() throws IOException {
+        String inputFile = ResourceUtils.getFile( "two_records.marcxml").getAbsolutePath();
+        String outputFile = testFolder.newFile().getAbsolutePath();
+        String expected = ResourceUtils.readString("two_records.mrc", true);
+        String[] args = {"-i=" + inputFile, "-o=" + outputFile};
+        Marcxml2ISO2709.main(args);
+        String[] result = new String[1];
+        result[0] = "";
+
+        Files.readAllLines(Paths.get(outputFile)).forEach(s -> result[0] = result[0] + s + EOL);
+
+        assertEquals(expected, result[0]);
+    }
 }

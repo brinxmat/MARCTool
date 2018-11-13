@@ -7,6 +7,7 @@ import org.marc4j.marc.Record;
 import picocli.CommandLine;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Objects;
@@ -27,16 +28,18 @@ public class Marcxml2ISO2709 implements Runnable {
         CommandLine.run(new Marcxml2ISO2709(), args);
     }
 
-    private String convertFromMarcxml() {
+    private String convertFromMarcxml() throws IOException {
         final InputStream inputStream = getFileInputStream(inputFilePath);
         final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         final MarcXmlReader marcXmlReader = new MarcXmlReader(inputStream);
-        final MarcWriter marcWriter = new MarcStreamWriter(byteArrayOutputStream);
+        final MarcWriter marcWriter = new MarcStreamWriter(byteArrayOutputStream, StandardCharsets.UTF_8.displayName(), true);
         while (marcXmlReader.hasNext()) {
             Record record = marcXmlReader.next();
             marcWriter.write(record);
+            byteArrayOutputStream.write(System.lineSeparator().getBytes());
         }
-        return byteArrayOutputStream.toString() + System.lineSeparator();
+        marcWriter.close();
+        return byteArrayOutputStream.toString();
     }
 
     private InputStream getFileInputStream(String path) {
@@ -56,7 +59,11 @@ public class Marcxml2ISO2709 implements Runnable {
                 throw new RuntimeException(e);
             }
         } else {
-            System.out.println(convertFromMarcxml());
+            try {
+                System.out.println(convertFromMarcxml());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }
