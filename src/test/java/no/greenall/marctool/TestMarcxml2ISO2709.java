@@ -58,7 +58,7 @@ public class TestMarcxml2ISO2709 {
         String[] result = new String[1];
         result[0] = "";
 
-        Files.readAllLines(Paths.get(outputFile)).forEach(s -> result[0] = result[0] + s + EOL);
+        Files.readAllLines(Paths.get(outputFile)).forEach(s -> result[0] = result[0] + s);
 
         assertEquals(expected, result[0]);
     }
@@ -74,7 +74,7 @@ public class TestMarcxml2ISO2709 {
         String[] result = new String[1];
         result[0] = "";
 
-        Files.readAllLines(Paths.get(outputFile)).forEach(s -> result[0] = result[0] + s + EOL);
+        Files.readAllLines(Paths.get(outputFile)).forEach(s -> result[0] = result[0] + s);
 
         assertEquals(expected, result[0]);
     }
