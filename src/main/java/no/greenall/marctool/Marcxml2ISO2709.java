@@ -36,7 +36,7 @@ public class Marcxml2ISO2709 implements Runnable {
             Record record = marcXmlReader.next();
             marcWriter.write(record);
         }
-        return byteArrayOutputStream.toString();
+        return byteArrayOutputStream.toString() + System.lineSeparator();
     }
 
     private InputStream getFileInputStream(String path) {
