@@ -28,7 +28,7 @@ public class Marcxml2ISO2709 implements Runnable {
         CommandLine.run(new Marcxml2ISO2709(), args);
     }
 
-    private String convertFromMarcxml() throws IOException {
+    private String convertFromMarcxml() {
         final InputStream inputStream = getFileInputStream(inputFilePath);
         final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         final MarcXmlReader marcXmlReader = new MarcXmlReader(inputStream);
@@ -58,11 +58,7 @@ public class Marcxml2ISO2709 implements Runnable {
                 throw new RuntimeException(e);
             }
         } else {
-            try {
-                System.out.println(convertFromMarcxml());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            System.out.println(convertFromMarcxml());
         }
     }
 }
