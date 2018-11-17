@@ -1,0 +1,11 @@
+os:
+  - linux
+  - macos
+  - windows
+language: java
+jdk:
+  - oraclejdk8
+script: ./gradlew test build
+branches:
+  only:
+  - master
