@@ -15,6 +15,8 @@ matrix:
 before_script:
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]] ; then choco install jdk8  ; fi
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]] ; then export PATH=$PATH:"/c/Program Files/Java/jdk1.8.0_191/bin" ; fi
+after_script:
+  - if [[ "$TRAVIS_OS_NAME == "windows" ]] ; then ps -ef ; fi
 script:
   - ./gradlew test build
 branches:
