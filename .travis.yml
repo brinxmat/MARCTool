@@ -11,6 +11,7 @@ matrix:
     language: java
     jdk: openjdk8
   - os: windows
+    dist: 1803-containers
     jdk: oraclejdk8
     language: sh
 before_install:
