@@ -15,7 +15,7 @@ matrix:
     language: sh
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]] ; then export PATH=$PATH:"/c/Program Files/Java/jdk1.8.0_191/bin" ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then export JAVA_HOME:"/c/Program Files/Java/jdk1.8.0_191/bin" ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then export JAVA_HOME="/c/Program Files/Java/jdk1.8.0_191/bin" ; fi
 after_script:
   - if [[ $gradle_return == "0" ]] ; then travis_terminate 0 ; else travis_terminate 1 ; fi
 script:
