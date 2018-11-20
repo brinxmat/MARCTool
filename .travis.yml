@@ -11,13 +11,11 @@ matrix:
     language: java
     jdk: openjdk8
   - os: windows
-    dist: 1803-containers
     jdk: oraclejdk8
     language: sh
-before_install:
-- if [[ "$TRAVIS_OS_NAME" == "windows" ]] ; then ls /c/Program\ Files ; fi
-- if [[ "$TRAVIS_OS_NAME" == "windows" ]] ; then export PATH=$PATH:"/c/Program Files/Java/jdk1.8.0_191/bin" ; fi
-
+before_script:
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]] ; then choco install jdk8  ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]] ; then export PATH=$PATH:"/c/Program Files/Java/jdk1.8.0_191/bin" ; fi
 after_script:
   - if [[ $gradle_return == "0" ]] ; then travis_terminate 0 ; else travis_terminate 1 ; fi
 script:
