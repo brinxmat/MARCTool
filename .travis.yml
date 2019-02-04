@@ -11,7 +11,7 @@ matrix:
     language: java
     jdk: openjdk11
   - os: windows
-    language: java
+    language: shell
     jdk: openjdk11
 before_script:
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]] ; then choco install jdk8  ; fi
