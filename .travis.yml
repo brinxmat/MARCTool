@@ -9,10 +9,10 @@ matrix:
     jdk: openjdk11
   - os: osx
     language: java
-    jdk: oraclejdk8
+    jdk: openjdk11
   - os: windows
     language: java
-    jdk: oraclejdk8
+    jdk: openjdk11
 before_script:
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]] ; then choco install jdk8  ; fi
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]] ; then export PATH=$PATH:"/c/Program Files/Java/jdk1.8.0_191/bin" ; fi
