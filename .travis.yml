@@ -14,7 +14,7 @@ matrix:
     language: shell
     jdk: openjdk11
 before_script:
-  - if [[ "$TRAVIS_OS_NAME" == "windows" ]] ; then choco install jdk8  ; JV=$(echo jdk1.8.0_201 | grep -E '(jdk1\.8\.0_[0-9]+\b)' | cat) ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]] ; then JV=$(choco install jdk8 | grep -E '(jdk1\.8\.0_[0-9]+\b)' | cat) ; fi
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]] ; then export JAVA_HOME="/c/Program Files/Java/$JV" ; fi
 after_script:
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]] ; then taskkill -F -im java.exe  ; fi
