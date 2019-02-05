@@ -15,7 +15,6 @@ matrix:
     jdk: openjdk11
 before_script:
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]] ; then JV=$(choco install jdk8 | grep -oE '(jdk1\.8\.0_[0-9]+\b)' | head -1) ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "windows" ]] ; then echo $JV ; fi
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]] ; then export JAVA_HOME="/c/Program Files/Java/$JV" ; fi
 after_script:
   - if [[ "$TRAVIS_OS_NAME" == "windows" ]] ; then taskkill -F -im java.exe  ; fi
