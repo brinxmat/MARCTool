@@ -1,6 +1,5 @@
 package no.greenall.marctool;
 
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -25,7 +24,6 @@ public class TestApp {
         App.main(args);
     }
 
-    @Ignore
     @Test
     public void testItDisplaysHelpMessageOnNoArgs() {
 
