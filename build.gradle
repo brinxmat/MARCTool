@@ -28,7 +28,7 @@ jar {
 
 dependencies {
     compile group: 'info.picocli', name: 'picocli', version: '3.9.6'
-    compile group: 'org.marc4j', name: 'marc4j', version: '2.8.3'
+    compile group: 'org.marc4j', name: 'marc4j', version: '2.9'
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
